@@ -7,8 +7,9 @@
 <p align="left"><img src="https://komarev.com/ghpvc/?username=DarshitRajyaguru&label=Profile%20views&color=0e75b6&style=flat" alt="DarshitRajyaguru" /> </p>
 <br>
 
-- 🌱 I’m Currently Working as WordPress Developer.
+- 🌱 I’m Currently Working as a WordPress Developer.
 - 📫 How to reach me **darshitrajyaguru@gmail.com**
+- 🌐 Portfolio: [View My Work](https://darshitrajyaguru.github.io/Darshit-Portfolio/)
 - ⚡ Interests :-  Food🍔, Travel✈️, Reading📚
 <br>
 <h2 align="center">Knowledge Base</h2>
