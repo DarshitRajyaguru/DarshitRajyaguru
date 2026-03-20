@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Darshit Rajyaguru</h1>
-<h3 align="center">🚀 WordPress Developer | WooCommerce Expert | Figma to WordPress Specialist</h3>
+<h3 align="center">🚀 WordPress Expert | Core Contributor | WooCommerce Expert | Figma to WordPress Specialist</h3>
 
 <p align="center">
   <a href="https://darshitrajyaguru.github.io/Darshit-Portfolio/">
