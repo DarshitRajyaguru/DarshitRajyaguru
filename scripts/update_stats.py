@@ -8,9 +8,11 @@ No third-party card hosting, pip install, or personal access token is required.
 
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -79,6 +81,35 @@ def get_contributions() -> dict:
     return collection["contributionsCollection"]
 
 
+def sync_readme_cache_key(svg_content: str) -> None:
+    """Change the image URL only when the underlying metrics SVG changes.
+
+    GitHub's image proxy can cache an old SVG even when a branch file is updated.
+    A content-derived URL query parameter makes the new image URL distinct,
+    without changing the visual layout or continuously creating new commits.
+    """
+    readme_path = Path("README.md")
+    if not readme_path.exists():
+        return
+    readme = readme_path.read_text(encoding="utf-8")
+    url = (
+        f"https://raw.githubusercontent.com/{USERNAME}/{USERNAME}/"
+        "main/assets/github-activity.svg"
+    )
+    pattern = re.escape(url) + r"(?:\\?v=[0-9a-f]{12})?"
+    # Each image version is stable until the underlying metrics change.
+    version = hashlib.sha256(svg_content.encode("utf-8")).hexdigest()[:12]
+    updated, matches = re.subn(pattern, lambda _: f"{url}?v={version}", readme)
+    if matches != 1:
+        raise RuntimeError(
+            "Expected a single GitHub activity image URL in README.md; "
+            f"found {matches}. Please check the image reference."
+        )
+    if updated != readme:
+        readme_path.write_text(updated, encoding="utf-8")
+        print(f"Updated README.md activity image cache key: {version}")
+
+
 def metric_card(x: int, value: str, label: str, note: str, accent: str) -> str:
     e = html.escape
     return f'''  <g transform="translate({x} 120)">
@@ -144,9 +175,11 @@ def main() -> None:
         sys.exit(1)
     DEST.parent.mkdir(parents=True, exist_ok=True)
     if DEST.exists() and DEST.read_text(encoding="utf-8") == output:
-        print("GitHub activity metrics have not changed; no update necessary.")
+        sync_readme_cache_key(output)
+        print("GitHub activity metrics have not changed; no SVG update necessary.")
         return
     DEST.write_text(output, encoding="utf-8")
+    sync_readme_cache_key(output)
     print(f"Updated {DEST}: public repos={len(repos)}, stars={sum(int(r.get('stargazers_count') or 0) for r in repos)}, contributions={contributions['contributionCalendar']['totalContributions']}")
 
 
