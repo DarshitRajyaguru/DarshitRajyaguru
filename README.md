@@ -73,7 +73,7 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
 
 ## 🛠️ Tech stack & workflow
 
-**WordPress & commerce**
+**WordPress & E-Commerce**
 
 ![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
 ![WooCommerce](https://img.shields.io/badge/WooCommerce-96588A?style=flat-square&logo=woocommerce&logoColor=white)
@@ -81,6 +81,7 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
 ![Gutenberg](https://img.shields.io/badge/Gutenberg-111111?style=flat-square&logo=wordpress&logoColor=white)
 ![ACF](https://img.shields.io/badge/ACF-005B4C?style=flat-square&logo=wordpress&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST_API-2563EB?style=flat-square)
+![Custom Code Solutions](https://img.shields.io/badge/Custom_Code_Solutions-0D9488?style=flat-square&logo=codefactor&logoColor=white)
 
 **Languages & frontend**
 
@@ -104,6 +105,22 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
 ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat-square&logo=jira&logoColor=white)
 ![Trello](https://img.shields.io/badge/Trello-0052CC?style=flat-square&logo=trello&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=slack&logoColor=white)
+![Basecamp](https://img.shields.io/badge/Basecamp-1D2D35?style=flat-square&logo=basecamp&logoColor=white)
+![Google Meet](https://img.shields.io/badge/Google_Meet-00897B?style=flat-square&logo=googlemeet&logoColor=white)
+![Microsoft Teams](https://img.shields.io/badge/Microsoft_Teams-6264A7?style=flat-square&logo=microsoftteams&logoColor=white)
+![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=flat-square&logo=zoom&logoColor=white)
+![Google Chat](https://img.shields.io/badge/Google_Chat-34A853?style=flat-square&logo=googlechat&logoColor=white)
+
+**AI tools & developer assistants**
+
+![Google Antigravity](https://img.shields.io/badge/Google_Antigravity-3B82F6?style=flat-square&logo=google&logoColor=white)
+![OpenAI Codex](https://img.shields.io/badge/OpenAI_Codex-111827?style=flat-square&logo=openai&logoColor=white)
+![Claude AI](https://img.shields.io/badge/Claude_AI-C15F3C?style=flat-square&logo=anthropic&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-111827?style=flat-square&logo=githubcopilot&logoColor=white)
+![Perplexity AI](https://img.shields.io/badge/Perplexity_AI-20808D?style=flat-square&logo=perplexity&logoColor=white)
+![Cursor](https://img.shields.io/badge/Cursor-111827?style=flat-square&logoColor=white)
+![ChatGPT](https://img.shields.io/badge/ChatGPT-10A37F?style=flat-square&logo=openai&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=flat-square&logo=googlegemini&logoColor=white)
 
 <details open>
 <summary><strong>Additional tools, platforms & practices</strong></summary>
@@ -114,13 +131,14 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
 - **Optimization:** caching/CDN, WP Rocket, LiteSpeed Cache, Cloudflare, SEO and accessibility checks.
 - **Development workflows:** Git branching, REST/AJAX, MySQL, debugging, testing, Postman, CI-minded releases.
 - **Delivery management:** Jira, Trello, Basecamp, sprint tracking, documentation, QA checklists, handoffs.
-- **AI-assisted workflow:** OpenAI/Codex, Cursor and other developer assistants where useful; human-reviewed output.
+- **Client and team communication:** Google Meet, Microsoft Teams, Slack, Zoom, Google Chat, stakeholder meetings, technical demos, and status updates.
+- **AI-assisted workflow:** Google Antigravity, OpenAI Codex, Claude AI, GitHub Copilot, Perplexity AI, Cursor, ChatGPT, and Gemini for research, prototyping, development support, and human-reviewed output.
 
 </details>
 
 ## 🤝 Ways I can help
 
-**Development:** Custom WordPress websites · Figma-to-WordPress · WooCommerce development & checkout improvements · Theme/plugin development · Performance fixes · Migrations & ongoing support.
+**Development:** Custom WordPress websites · Figma-to-WordPress · WooCommerce development & checkout improvements · Custom code solutions · Theme/plugin development · Performance fixes · Migrations & ongoing support.
 
 **Delivery:** Technical scoping · Project estimation · Task breakdown · Team coordination · Sprint planning · Client communication · Code/QA reviews · Launch planning.
 
