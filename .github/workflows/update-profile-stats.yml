@@ -3,12 +3,8 @@ name: Refresh public GitHub activity
 on:
   push:
     branches: [main]
-    paths:
-      - README.md
-      - scripts/update_stats.py
-      - .github/workflows/update-profile-stats.yml
   schedule:
-    - cron: '7,27,47 * * * *'
+    - cron: '2,7,12,17,22,27,32,37,42,47,52,57 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -38,12 +34,12 @@ jobs:
         run: python scripts/update_stats.py
       - name: Commit statistics only when numbers change
         run: |
-          git add assets/github-activity.svg
+          git add assets/github-activity.svg README.md
           if git diff --cached --quiet; then
             echo 'No activity changes to publish.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore(profile): refresh GitHub activity stats'
+          git commit -m 'chore(profile): refresh activity metrics and image version'
           git push
