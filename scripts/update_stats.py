@@ -96,7 +96,7 @@ def sync_readme_cache_key(svg_content: str) -> None:
         f"https://raw.githubusercontent.com/{USERNAME}/{USERNAME}/"
         "main/assets/github-activity.svg"
     )
-    pattern = re.escape(url) + r"(?:\\?v=[0-9a-f]{12})?"
+    pattern = re.escape(url) + r"(?:\?v=[0-9a-f]{12})?"
     # Each image version is stable until the underlying metrics change.
     version = hashlib.sha256(svg_content.encode("utf-8")).hexdigest()[:12]
     updated, matches = re.subn(pattern, lambda _: f"{url}?v={version}", readme)
