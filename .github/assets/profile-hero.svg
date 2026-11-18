@@ -11,7 +11,7 @@
   <rect width="1200" height="340" fill="url(#grid)"/>
   <circle cx="1090" cy="80" r="270" fill="url(#glow)"/>
   <circle cx="1190" cy="320" r="190" fill="#0C3A56" opacity=".25"/>
-  <rect x="53" y="42" width="328" height="30" rx="15" fill="#112D43" stroke="#286477" stroke-opacity=".7"/>
+  <rect x="53" y="42" width="404" height="30" rx="15" fill="#112D43" stroke="#286477" stroke-opacity=".7"/>
   <circle cx="70" cy="57" r="4" fill="#50DEC7"/>
   <text x="85" y="62" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="1.55" fill="#8AECDD">WORDPRESS · OPEN SOURCE · LEADERSHIP</text>
   <text x="51" y="135" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Darshit Rajyaguru</text>
