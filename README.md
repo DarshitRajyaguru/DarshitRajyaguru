@@ -156,7 +156,7 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
   <a href="https://github.com/DarshitRajyaguru?tab=repositories">Browse public repositories</a> ·
   <a href="https://github.com/DarshitRajyaguru?tab=overview">View GitHub's native contribution graph</a>
 </p>
-<sub>Stats are generated from the GitHub API and refreshed automatically on profile repository pushes and on scheduled checks about every 20 minutes. GitHub Actions scheduling, API processing, and image caching can cause delays; an immediate refresh for contributions across all repositories cannot be guaranteed. WordPress.org contributions are tracked separately.</sub>
+<sub>Stats are generated from the GitHub API. Contributions and pull requests reflect GitHub’s rolling 12-month contribution records; public authored commits include indexed public-branch commits over the past 365 days. The final card shows repositories I starred / stars received by my public repositories. Refreshed on profile pushes and scheduled checks roughly every 5 minutes, subject to GitHub Actions scheduling, indexing and image cache delays. Private activity and WordPress.org contributions are not included in these public metrics.</sub>
 </details>
 
 ---
