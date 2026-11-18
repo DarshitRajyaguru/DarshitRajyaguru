@@ -16,6 +16,8 @@ import re
 import sys
 import urllib.error
 import urllib.request
+import urllib.parse
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 USERNAME = os.environ.get("PROFILE_USERNAME", "DarshitRajyaguru")
@@ -50,6 +52,39 @@ def get_public_repos() -> list[dict]:
         if len(page_result) < 100:
             break
     return repos
+
+
+def get_starred_repos() -> int:
+    """How many public repositories this account has starred (stars given)."""
+    count = 0
+    for page in range(1, 51):
+        result = request(f"{BASE}/users/{USERNAME}/starred?per_page=100&page={page}")
+        if not isinstance(result, list):
+            raise RuntimeError("GitHub starred repository API returned unexpected data")
+        count += len(result)
+        if len(result) < 100:
+            return count
+    raise RuntimeError("More than 5,000 starred repos: increase pagination limit")
+
+
+def get_public_authored_commits() -> int:
+    """12-month GitHub Search commit total, across public repositories and branches.
+
+    Unlike GraphQL totalCommitContributions, this includes authored commits
+    on non-default branches too, once GitHub's public search index includes them.
+    Private repositories and commits not linked to the username are excluded.
+    """
+    since = (datetime.now(timezone.utc) - timedelta(days=365)).date().isoformat()
+    query = urllib.parse.urlencode({
+        "q": f"author:{USERNAME} author-date:>={since}",
+        "per_page": 1,
+    })
+    data = request(f"{BASE}/search/commits?{query}")
+    if not isinstance(data, dict) or "total_count" not in data:
+        raise RuntimeError("GitHub commit search API returned unexpected data")
+    if data.get("incomplete_results"):
+        raise RuntimeError("GitHub commit search results are incomplete; keeping previous statistics")
+    return int(data["total_count"])
 
 
 def get_contributions() -> dict:
@@ -125,13 +160,13 @@ def svg(data: dict) -> str:
     contributions = data["contributions"]
     cards = [
         ("12-mo contributions", "GitHub contribution graph", contributions["contributionCalendar"]["totalContributions"], "#54B6FF"),
-        ("Commits", "Past 12 months", contributions["totalCommitContributions"], "#70D6BA"),
+        ("Public commits", "Authored · past 365 days", data["public_commits"], "#70D6BA"),
         ("Pull requests", "Past 12 months", contributions["totalPullRequestContributions"], "#BFA4FF"),
         ("Public repositories", "Currently accessible", data["repos"], "#F5B36A"),
-        ("Stars received", "Across public repositories", data["stars"], "#FFCF74"),
+        ("Starred / received", "Given / received", f"{data['starred']:,} / {data['stars']:,}", "#FFCF74"),
     ]
     marks = "\n".join(
-        metric_card(30 + i * 232, f"{value:,}", label, note, color)
+        metric_card(30 + i * 232, value if isinstance(value, str) else f"{value:,}", label, note, color)
         for i, (label, note, value, color) in enumerate(cards)
     )
     # Deliberately omit time stamps: unchanged data means no new Git commit on each poll.
@@ -149,14 +184,14 @@ def svg(data: dict) -> str:
   <rect x="1" y="1" width="1218" height="305" rx="20" fill="url(#background)" stroke="#314864"/>
   <rect x="30" y="28" width="5" height="34" rx="2.5" fill="url(#stripe)"/>
   <text x="48" y="49" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">GitHub activity</text>
-  <text x="48" y="76" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#9AB1CD">Public repository metrics · rolling 12-month contributions</text>
+  <text x="48" y="76" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#9AB1CD">Public commit activity, repository metrics · rolling 12-month contributions</text>
   <rect x="1005" y="34" width="182" height="31" rx="15.5" fill="#133C3F" stroke="#26746B"/>
   <circle cx="1021" cy="49.5" r="4" fill="#56E2BD"/>
   <text x="1033" y="54" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="12" fill="#91F2D5">AUTO-UPDATED</text>
   <g font-family="Arial,Helvetica,sans-serif">
 {marks}
   </g>
-  <text x="31" y="279" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#8DA5C1">Source: GitHub API · Rebuilt on profile pushes and scheduled checks · Repository and contribution counts may differ from external cards</text>
+  <text x="31" y="279" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#8DA5C1">Source: GitHub API · Public commits include all branches · Stars given / received · Updated by GitHub Actions</text>
 </svg>
 '''
 
@@ -165,11 +200,22 @@ def main() -> None:
     try:
         repos = get_public_repos()
         contributions = get_contributions()
+        starred = get_starred_repos()
+        public_commits = get_public_authored_commits()
+        received_stars = sum(int(r.get("stargazers_count") or 0) for r in repos)
         output = svg({
             "repos": len(repos),
-            "stars": sum(int(r.get("stargazers_count") or 0) for r in repos),
+            "stars": received_stars,
+            "starred": starred,
+            "public_commits": public_commits,
             "contributions": contributions,
         })
+        print(
+            f"Verified API values: repos={len(repos)}, "
+            f"public authored commits={public_commits}, "
+            f"stars given={starred}, stars received={received_stars}, "
+            f"GitHub contribution total={contributions['contributionCalendar']['totalContributions']}"
+        )
     except (urllib.error.URLError, RuntimeError, ValueError, KeyError, TypeError) as exc:
         print(f"Cannot refresh activity metrics: {exc}", file=sys.stderr)
         sys.exit(1)
