@@ -12,7 +12,7 @@
   <rect x="1" y="1" width="1218" height="305" rx="20" fill="url(#background)" stroke="#314864"/>
   <rect x="30" y="28" width="5" height="34" rx="2.5" fill="url(#stripe)"/>
   <text x="48" y="49" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">GitHub activity</text>
-  <text x="48" y="76" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#9AB1CD">Public repository metrics · rolling 12-month contributions</text>
+  <text x="48" y="76" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#9AB1CD">Public commit activity, repository metrics · rolling 12-month contributions</text>
   <rect x="1005" y="34" width="182" height="31" rx="15.5" fill="#133C3F" stroke="#26746B"/>
   <circle cx="1021" cy="49.5" r="4" fill="#56E2BD"/>
   <text x="1033" y="54" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="12" fill="#91F2D5">AUTO-UPDATED</text>
@@ -20,7 +20,7 @@
   <g transform="translate(30 120)">
     <rect x="0" y="0" width="214" height="132" rx="15" fill="#111F36" stroke="#294260" stroke-width="1"/>
     <rect x="16" y="19" width="4" height="24" rx="2" fill="#54B6FF"/>
-    <text x="31" y="49" fill="#F3F7FF" font-size="35" font-weight="800">157</text>
+    <text x="31" y="49" fill="#F3F7FF" font-size="35" font-weight="800">158</text>
     <text x="16" y="81" fill="#B8CADF" font-size="14" font-weight="700">12-mo contributions</text>
     <text x="16" y="104" fill="#7E9AB8" font-size="11">GitHub contribution graph</text>
   </g>
@@ -28,8 +28,8 @@
     <rect x="0" y="0" width="214" height="132" rx="15" fill="#111F36" stroke="#294260" stroke-width="1"/>
     <rect x="16" y="19" width="4" height="24" rx="2" fill="#70D6BA"/>
     <text x="31" y="49" fill="#F3F7FF" font-size="35" font-weight="800">86</text>
-    <text x="16" y="81" fill="#B8CADF" font-size="14" font-weight="700">Commits</text>
-    <text x="16" y="104" fill="#7E9AB8" font-size="11">Past 12 months</text>
+    <text x="16" y="81" fill="#B8CADF" font-size="14" font-weight="700">Public commits</text>
+    <text x="16" y="104" fill="#7E9AB8" font-size="11">Authored · past 365 days</text>
   </g>
   <g transform="translate(494 120)">
     <rect x="0" y="0" width="214" height="132" rx="15" fill="#111F36" stroke="#294260" stroke-width="1"/>
@@ -48,10 +48,10 @@
   <g transform="translate(958 120)">
     <rect x="0" y="0" width="214" height="132" rx="15" fill="#111F36" stroke="#294260" stroke-width="1"/>
     <rect x="16" y="19" width="4" height="24" rx="2" fill="#FFCF74"/>
-    <text x="31" y="49" fill="#F3F7FF" font-size="35" font-weight="800">7</text>
-    <text x="16" y="81" fill="#B8CADF" font-size="14" font-weight="700">Stars received</text>
-    <text x="16" y="104" fill="#7E9AB8" font-size="11">Across public repositories</text>
+    <text x="31" y="49" fill="#F3F7FF" font-size="35" font-weight="800">8 / 8</text>
+    <text x="16" y="81" fill="#B8CADF" font-size="14" font-weight="700">Starred / received</text>
+    <text x="16" y="104" fill="#7E9AB8" font-size="11">Given / received</text>
   </g>
   </g>
-  <text x="31" y="279" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#8DA5C1">Source: GitHub API · Rebuilt on profile pushes and scheduled checks · Repository and contribution counts may differ from external cards</text>
+  <text x="31" y="279" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#8DA5C1">Source: GitHub API · Public commits include all branches · Stars given / received · Updated by GitHub Actions</text>
 </svg>
