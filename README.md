@@ -149,7 +149,7 @@ I'm active in the WordPress community across **Core, Core AI, testing, themes, d
 <br />
 <p align="center">
   <a href="https://github.com/DarshitRajyaguru?tab=overview">
-    <img src="https://raw.githubusercontent.com/DarshitRajyaguru/DarshitRajyaguru/main/assets/github-activity.svg?v=1f0e90dd4108" width="100%" alt="Automatically updated GitHub contributions, commits, pull requests, public repositories, and stars" />
+    <img src="https://raw.githubusercontent.com/DarshitRajyaguru/DarshitRajyaguru/main/assets/github-activity.svg?v=7befaf1a5187" width="100%" alt="Automatically updated GitHub contributions, commits, pull requests, public repositories, and stars" />
   </a>
 </p>
 <p align="center">
